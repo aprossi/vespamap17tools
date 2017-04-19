@@ -8,4 +8,6 @@ The [Welcome and Intro](https://github.com/aprossi/vespamap17welcome) repo inclu
 
 * [Welcome and introduction](http://aprossi.github.io/vespamap17welcome) ([Angelo Pio Rossi](https://github.com/aprossi) & [Chiara Marmo](https://github.com/cmarmo))
 
+[Template](https://github.com/aprossi/vespa-htmlpres) derived from [Google I/O 2012 slides](https://code.google.com/archive/p/io-2012-slides/)
 
+Content [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0)
