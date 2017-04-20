@@ -1,0 +1,964 @@
+<!--
+Google IO 2012 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google IO 2012</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/app.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+<!-- <slide class="logoslide nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo.png"></span>
+  </article>
+</slide>
+ -->
+<slide class="title-slide segue nobackground">
+  <aside class="gdbar"><img src="images/vespa_128.png"></aside>
+  <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+  <hgroup class="auto-fadein">
+    <h1 data-config-title><!-- populated from slide_config.json --></h1>
+    <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+    <p data-config-presenter><!-- populated from slide_config.json --></p>
+  </hgroup>
+</slide>
+
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Outline</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Needs and drivers</li>
+<li>OGC state of the art</li>
+<li>EO v.s Astronomy/VO</li>
+<li>(Web-accessible) Archives</li>
+<li>(pre)Processing tools</li>
+<li>Web processing services:<ul>
+<li>on-demand processing</li>
+<li>(near) real-time processing</li>
+</ul>
+</li>
+<li>Mapping and integration/GIS<ul>
+<li>Desktop</li>
+<li>WebGIS (e.g. Jmars)</li>
+</ul>
+</li>
+<li>(Partial) Compilation of resources</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Mapping needs and drivers</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Needs of the planetary community for On-line mapping services</li>
+<li>Same as most any Earth-based mapping community</li>
+<li>Need for common projections</li>
+<li>Accurate data (to support robotic and human missions)</li>
+<li>Support for huge data sets (e.g. 1TB, 16bit  Kaguya Lunar mosaic)</li>
+<li>Data portals</li>
+<li>Formats</li>
+<li>Usability / Interoperability</li>
+<li>True 3D surfaces (asteroids, in-situ)</li>
+<li>Metadata</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>State of the Art Summary (OGC)</h2>
+      <h3>WMS/WCS/WCPS implementations, e.g. (see yesterday's live stream...)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>PlanetServer, Rasdaman hyperspectral WCS/WCPS/WMS server - Jacobs University</li>
+<li>Lunarserv - Custom WMS/WCS and processing server -  Arizona State University</li>
+<li>MarsTrek, MoonTrek, VestaTrek – WMTS Server (and 3D interface) by JPL</li>
+<li>JMars (mission planning, data viewer) -  Arizona State University</li>
+<li>Mars, Moon, Venus - Esri (S3)  WMTS support – currently under beta</li>
+<li>Supports optimized WMS and tile server code in GDAL - (by Lucian Plesea)</li>
+<li>Best-of image bases (as WMS), WFS Nomenclature, ArcGIS Server – USGS</li>
+<li>German Aerospace Center (Freie University/DLR)</li>
+<li>Japan Aerospace eXploration Agency (JAXA)</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Earth Observation</h2>
+      <h3>Quite ahead (like astronomy VO...)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/eo.png" /></p>
+<footer class="source"><img src="images/epn.png" height="32">     Source: <a href="http://eosda.com">eosda.com</a> / <a href="http://eodataservice.org">eodataservice.org</a></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Processing levels</h2>
+      <h3>Definitions</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li><b>Telemetry</b>: An encoded byte stream used to transfer data from one or more instruments to temporary storage where the raw instrument data will be extracted</li>
+<li><b>Raw</b>: Original data from an instrument</li>
+<li><b>Partially Processed</b>: Data that have been processed beyond the raw stage but which have not yet reached calibrated status.</li>
+<li><b>Calibrated</b>: Data converted to physical units, which makes values independent of the instrument.</li>
+<li><b>Derived</b>: Results that have been distilled from one or more calibrated data products (for example, maps, gravity or magnetic fields, or ring particle size distributions).</li>
+<li><b>Supplementary</b>: such as calibration tables or tables of viewing geometry</li>
+</ul>
+<!-- <footer class="source">Source: NASA PDS</footer> -->
+
+<footer class="source"><img src="images/epn.png" height="32">     Source: NASA PDS</footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Processing levels</h2>
+      <h3>Examples</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/levels-isis3.png" /></p>
+<!-- <footer class="source">Source: NASA/MRO/CTX/MSSS</footer> -->
+
+<footer class="source"><img src="images/epn.png" height="32">     Source: NASA/MRO/CTX/MSSS</footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Archives</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="ODE" src="images/pds-photo.png" /></p>
+<ul>
+<li>Science-targeted, e.g. <a href="http://ode.rsl.wustl.edu">PDS Geosciences ODE</a>, <a href="http://archives.esac.esa.int/psa">ESA PSA</a></li>
+<li>Outreach-targeted, e.g. <a href="http://photojournal.jpl.nasa.gov/">NASA Planetary Photojournal</a></li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Tools</h2>
+      <h3>general aspects</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Tools for planetary data access, processing and analysis are very diverse</li>
+<li>Higher processing level needed for mapping</li>
+<li>GIS/RS tools used on Earth are effectively usable almost unchanged on Solar System bodies</li>
+<li>Underlying planetary cartography (CRS) critical (see Trent's talk of yesterday)</li>
+<li>Tools are evolving FAST. These slides in 1 year (1 month?) might well be outdated.</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Archives</h2>
+      <h3>PDS Geosciences Node</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/pds-ode.png" /></p>
+<!-- <footer class="source"><a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer> -->
+
+<footer class="source"><img src="images/epn.png" height="32">     <a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Archives</h2>
+      <h3>PDS Geosciences Node</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/pds-ode2.png" /></p>
+<!-- <footer class="source"><a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer> -->
+
+<footer class="source"><img src="images/epn.png" height="32">     <a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Archives</h2>
+      <h3>PDS: Standards, nodes, etc.</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/pds-ode3.png" /></p>
+<!-- <footer class="source"><a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer> -->
+
+<footer class="source"><img src="images/epn.png" height="32">     <a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Archives</h2>
+      <h3>PDS Geosciences Node</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/pds-ode3.png" /></p>
+<!-- <footer class="source"><a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer> -->
+
+<footer class="source"><img src="images/epn.png" height="32">     <a href="http://pds-geosciences.wustl.edu">http://pds-geosciences.wustl.edu</a></footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Archives</h2>
+      <h3>Experiment teams (not necessarily long term)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>CRISM (MRO)<ul>
+<li>CRISM MAP - http://crism-map.jhuapl.edu/</li>
+</ul>
+</li>
+<li>HIRISE (MRO)<ul>
+<li>http://hirise.lpl.arizona.edu</li>
+</ul>
+</li>
+<li>HRSC (MRO)<ul>
+<li>http://hrscview.fu-berlin.de</li>
+</ul>
+</li>
+<li>THEMIS Mars image explorer / ASU Data Viewer<ul>
+<li>http://themis-data.asu.edu</li>
+</ul>
+</li>
+<li>LROC ASU<ul>
+<li>http://lroc.sese.asu.edu</li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Workflow</h2>
+      <h3>Tyical for observations/mapping</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Decide where to work (scientific literature)
+[recent development ]View on easily accessible mosaicked data (e.g. Google Earth Mars version or the growing set of virtual globes….</li>
+<li>Data search</li>
+<li>Data download</li>
+<li>Data processing / post-processing</li>
+<li>Analysis / Mapping</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Workflow</h2>
+      <h3>Old school (1990s / 2000s)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Get a set of data at comparable resolution and perform the observation on a purely photogeological basis (more or less until the ‘90s)</li>
+<li>Use no or low-quality topography (pre-mid ‘90s), i.e. no ortho-products (distortions)</li>
+<li>No detailed compositional information (pre-mid 2000s)</li>
+<li>People in lander teams (e..g Viking) drive observation campaigns (‘70s-‘80s).</li>
+<li>Archived data are available to all</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Workflow</h2>
+      <h3>Recent (e.g. Mars)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Collect all available data from a variety of missions and experiments</li>
+<li>Analyse all data in combination (GIS-like)</li>
+<li>Use high-accuracy, high-resolution topography</li>
+<li>Use hyperspectral data ➔ compositional information</li>
+<li>Recent attempts to integrate orbital and lander/rover data</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Alternative paths</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>
+<p>1) Format conversion</p>
+<ul>
+<li>2006 - added PDS3 / ISIS2 read support to GDAL</li>
+<li>2007 – ISIS3 read support added</li>
+<li>2014 – VICAR read support added</li>
+<li>2017 – ”Geo”FITS to be added (github also fits2vrt script)</li>
+<li>2017 – ISIS3 writer, plans for PDS4 reader/writers</li>
+</ul>
+</li>
+<li>
+<p>2) Direct application support</p>
+<ul>
+<li>Wrap planetary data in supported headers</li>
+<li>To support: Esri, ERDAS, PCI Geomatic, ENVI (raw headers) or use graphical formats with Worldfiles</li>
+<li>GDAL support greatly helped</li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Tools</h2>
+      <h3>Isis3</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img alt="Mobile vs desktop users" src="images/isis3.png" /></p>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="https://isis.astrogeology.usgs.gov">https://isis.astrogeology.usgs.gov</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>VICAR</h2>
+      <h3>Video Image Communication And Retrieval</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>VICAR originally developed in the 1970s</li>
+<li>Still popular e.g. for Mars rovers (MER, MSL), HRSC, Cassini, etc.</li>
+<li>to be used probably also for Mars2020 (!)</li>
+<li>Recently parts of VICAR <a href="http://www-mipl.jpl.nasa.gov/vicar_open.html">open sourced</a></li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://www-mipl.jpl.nasa.gov/vicar_open.html">http://www-mipl.jpl.nasa.gov/vicar_open.html</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>NASA ASP</h2>
+      <h3>Ames Stereo Pipeline</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Stereogrammetry Open Source software</li>
+<li>Actively developed, very well supported</li>
+<li>Valuable for both planetary and EO studies</li>
+<li>Used in backend of web services (e.g. MarsSI)</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="https://ti.arc.nasa.gov/tech/asr/intelligent-robotics/ngt/stereo/">https://ti.arc.nasa.gov/tech/asr/intelligent-robotics/ngt/stereo/</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Planetary gazeteer (USGS)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><!-- <img src="images/gazeteer.png" height="200"> -->
+
+<ul>
+<li>Download GIS-ready Shapefiles (point file for each body, approx. bounds)</li>
+<li>USGS, NASA, and IAU work collaboratively to uniquely identify planetary nomenclature for features on terrestrial bodies.</li>
+</ul>
+<!-- ![planetarynames](images/gazeteer.png) -->
+
+<p><img src="images/gazeteer.png" height="200" align="right"></p>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://planetarynames.wr.usgs.gov">http://planetarynames.wr.usgs.gov</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>PILOT (USGS)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>download GIS shapefiles for each supported instrument</li>
+<li>Geospatially search a subset of the PDS Imaging Node EDR archives</li>
+<li>Served Data sets include<ul>
+<li>Cassini, MGS, MRO</li>
+<li>Odyssey, Viking,</li>
+<li>Messenger,</li>
+<li>Clementine, ...</li>
+</ul>
+</li>
+<li>PILOT can connect to POW</li>
+</ul>
+<p><img src="images/pilot.png" height="200" align="right"></p>
+<!-- ![planetarynames](images/gazeteer.png) -->
+
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://pilot.wr.usgs.gov">http://pilot.wr.usgs.gov</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>POW (USGS) - Processing on demand</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcente"><p><img src="images/pow.png" height="380"></p>
+<!-- ![planetarynames](images/pow.png) -->
+
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://astrocloud.wr.usgs.gov">http://astrocloud.wr.usgs.gov - Inspired by <a href="http://thmproc.mars.asu.edu">ASU Thmproc</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>MarsSI (Univ. Lyon) - Processing on demand</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img src="images/marssi.png" height="380"></p>
+<!-- ![planetarynames](images/marssi.png) -->
+
+<footer class="source"><img src="images/epn.png" height="32"> <a href="https://emars.univ-lyon1.fr/MarsSI/">https://emars.univ-lyon1.fr/MarsSI/</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Map-a-Planet v2 (USGS) - Processing on demand</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img src="images/map-a-planet.png" height="380"></p>
+<!-- ![planetarynames](images/marssi.png) -->
+
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://astrogeology.usgs.gov/tools/map">http://astrogeology.usgs.gov/tools/map</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>VESPA</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img src="images/vespa.png" height="380"></p>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://europlanet-vespa.eu/">http://europlanet-vespa.eu/</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>JMARS: GIS client</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article class="flexbox vcenter"><p><img src="images/jmars.png" height="380"></p>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://jmars.asu.edu">http://jmars.asu.edu</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Data workshops</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>1st MEX Data Workshop<ul>
+<li><a href="http://sci.esa.int/mexdw1/">http://sci.esa.int/mexdw1/</a></li>
+</ul>
+</li>
+<li>2nd MEXData Workshop<ul>
+<li><a href="http://sci.esa.int/mexdw2/">http://sci.esa.int/mexdw2/</a></li>
+</ul>
+</li>
+<li>CRISM User Data Workshop (multiple ones), e.g.<ul>
+<li><a href="http://crism.jhuapl.edu/CRISM_workshop_2009/">http://crism.jhuapl.edu/CRISM_workshop_2009/</a></li>
+</ul>
+</li>
+<li>CHEMCAM User Data Workshop<ul>
+<li><a href="http://pds-geosciences.wustl.edu/workshops/ChemCam_Workshop_Mar15.htm">http://pds-geosciences.wustl.edu/workshops/ChemCam_Workshop_Mar15.htm</a></li>
+</ul>
+</li>
+</ul>
+<!-- --- -->
+
+<!-- Davinci
+http://davinci.asu.edu/
+GDAL
+http://www.gdal.org/ -->
+
+<!-- QGIS
+http://www.qgis.org/
+Planetary WMS (web mapping server)
+http://webgis.wr.usgs.gov/ogc/Examples.htm
+PROJ4
+http://trac.osgeo.org/proj/
+ -->
+
+<!-- SPICE
+http://naif.jpl.nasa.gov/naif/
+GMT
+http://gmt.soest.hawaii.edu/
+GRASS
+http://grass.itc.it/
+HRSCVIEW and additional HRSC software
+http://hrscview.fu-berlin.de/software.html --></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Tutorials</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>VESPA tutorials (also held periodically at meetings:<ul>
+<li>ON <a href="https://voparis-confluence.obspm.fr/display/VES/va-t6-tutorials">VESPA wiki</a></li>
+<li>ON <a href="https://github.com/epn-vespa/tutorials">GitHUB</a></li>
+</ul>
+</li>
+<li><a href="https://grasswiki.osgeo.org/wiki/Planetary_mapping">GRASS tutorial</a></li>
+<li><a href="https://issues.cosmos.esa.int/psawiki/display/GISWS/Session+2+-+Hands-on">QGIS Tutorial</a></li>
+<li><a href="http://openplanetary.co/blog/tags/">OpenPlanetary blog posts</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Github et al.</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>EPN-VESPA: <a href="https://github.com/epn-vespa">https://github.com/epn-vespa</a></li>
+<li>USGS Astrogeology: <a href="https://github.com/USGS-Astrogeology">https://github.com/USGS-Astrogeology</a></li>
+<li>OpenPlanetary: <a href="https://github.com/openplanetary">https://github.com/openplanetary</a></li>
+<li>NASA <a href="https://github.com/nasa">https://github.com/nasa</a> ,e.g.<ul>
+<li><a href="https://github.com/nasa/DERT">DERT</a></li>
+</ul>
+</li>
+<li><a href="https://pds.nasa.gov/tools/tool-registry/">PDS Tool Registry</a></li>
+<li><a href="https://idlastro.gsfc.nasa.gov/">NASA IDL Astronomy User's Library</a></li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Python and surroundings</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>This is not exhaustive</li>
+<li>Please refer (and contribute!) to OP links list (also not guaranteed to be exhaustive)</li>
+<li>Attempt of collecting relevant python packages</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="http://github.com/openplanetary/openplanetary.github.io/wiki/Links-List
+">http://github.com/openplanetary/openplanetary.github.io/wiki/Links-List
+</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Python packages/modules</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li><a href="https://github.com/wtolson/pysis">wtolson/pysis</a> : Toolkit for using USGS Isis in Python.</li>
+<li><a href="https://github.com/godber/gdal_pds">godber/gdal_pds</a> : A GDAL wrapper for the PDS filetype in python.</li>
+<li><a href="https://github.com/USGS-Astrogeology/plio">USGS Planetary IO Module</a>: Reads planetary data (e.g. MGS TES, Kaguya Spectral Profiler) data to a pandas dataframe</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="https://github.com/openplanetary">https://github.com/openplanetary</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Python packages/modules</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li><a href="https://github.com/planetarypy">PlanetaryPy</a> : Python tools for Planetary Science<ul>
+<li><a href="https://github.com/planetarypy/planetaryimage">planetaryimage</a> : Python PDS and Isis Cube file parser.</li>
+<li><a href="https://github.com/planetarypy/planetarypy/pdsview/network">pdsview</a> : Python PDS Image Viewer</li>
+<li><a href="https://github.com/planetarypy/planetary_test_data">planetary_test_data</a> : Simple package that retrieves the suite of planetary data supported by planetaryimage.</li>
+<li><a href="https://github.com/planetarypy/cookiecutter-pypackage">cookiecutter-pypackage</a> : Cookiecutter template for a Python package. See <a href="https://github.com/audreyr/cookiecutter">audreyr/cookiecutter</a></li>
+<li><a href="https://github.com/planetarypy/pvl">pvl</a> : Python implementation of PVL (Parameter Value Language), which parses and encodes PDS and Isis labels.</li>
+</ul>
+</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="https://github.com/openplanetary">https://github.com/openplanetary</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3>Python packages/modules</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li><a href="https://github.com/AndrewAnnex/SpiceyPy">SpiceyPy</a> : SpiceyPy: The NASA JPL NAIF SPICE toolkit wrapper written in Python.</li>
+<li><a href="http://www.spectralpython.net/">Spectral Python 0.16.0</a> : Spectral Python (SPy) is a pure Python module for processing hyperspectral image data.m</li>
+<li><a href="https://github.com/SETI/pds-tools">SETI GitHub PDS tools</a> : Python tools to parse PDS3 labels, interface to the spice library, and do sundry other tasks.</li>
+<li><a href="http://jlaura.github.io/pysat/docs/home/">PySAT</a> : Python Spectral Analysis Tool (PySAT) is both a Python (2.7+) library, accessible via an API, and a Graphic User Interface</li>
+<li><a href="https://github.com/hugadams/scikit-spectra">scikit-spectra</a> : Python pandas-based toolkit for explorative spectroscopy, in particular UVVis spectroscopic data.</li>
+</ul>
+<footer class="source"><img src="images/epn.png" height="32"> <a href="https://github.com/openplanetary">https://github.com/openplanetary</a> </footer></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>PDS Tools (including NASAview)<ul>
+<li>http://pds.nasa.gov/tools/release/software_download.cfm</li>
+</ul>
+</li>
+<li>ISIS3<ul>
+<li>http://isis.astrogeology.usgs.gov/</li>
+</ul>
+</li>
+<li>HiRISE IAS Viewer<ul>
+<li>http://hiweb.lpl.arizona.edu/iasclient/</li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Resources</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>USGS ISIS3 Support Forum<ul>
+<li><a href="https://isis.astrogeology.usgs.gov/fixit/">https://isis.astrogeology.usgs.gov/fixit/</a></li>
+</ul>
+</li>
+<li>NASA ASP mailing list<ul>
+<li>stereo-pipeline@lists.nasa.gov</li>
+</ul>
+</li>
+<li>OpenPlanetary<ul>
+<li><a href="https://openplanetary.slack.com/">https://openplanetary.slack.com</a></li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Getting started tips</h2>
+      <h3>(old)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Consider investing some time</li>
+<li>Consult all relevant documentation and try to repeat simple examples here or on the software documentation page.</li>
+<li>Check the forums (e.g. isis3 support) and post questions (after having carefully searched for possible answers already available!!!).</li>
+<li>Check for new data/software releases (and sign up for notifications, e.g. isis3).</li>
+<li>Keep in touch (ask/provide help) with your friends/colleagues, e.g. with mailing lists, etc. Some critical mass of users in your professional neighborhood helps a lot!</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Getting started tips</h2>
+      <h3>(new)</h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><ul>
+<li>Still, it takes some time to be invested ;)</li>
+</ul>
+<p><a href="http://europlanet-vespa.eu"><img src="images/epn.png" height="80px"></a><br>
+<a href="http://openplanetary.co"><img src="images/op.png" height="80px"></a><br>
+<a href="http://astrogeology.usgs.gov"><img src="images/logo-usgs.svg" height="80px"></a><br></p>
+<!-- <a href="http://europlanet-vespa.eu">![epn](images/epn.png)</a>
+<a href="http://openplanetary.co">![op](images/op.png)</a> --></article>
+ 
+</slide>
+
+<slide class="big" >
+  
+    <hgroup>
+      <h2>Thank you</h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ><footer class="source"><img src="images/epn.png" height="32"> Content ©2017 <a href="http://aprossi.eu">A. P. Rossi, T. Hare</a> - <a href="https://twitter.com/arosp">@arosp</a> - <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a></footer></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2></h2>
+      <h3></h3>
+      <!-- FOOTER ADDED -->
+      <!-- <footer class="source"><a href="http://europlanet-vespa.eu/"><img src="images/epn.png" height="32"></a></footer> -->
+      <footer class="source"><img src="images/epn.png" height="32"></footer>
+      <!-- END FOOTER ADDED -->
+    </hgroup>
+    <article ></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <aside class="gdbar right"><img src="images/vespa_128.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>Have a nice workshop</h2>
+    <p>Hashtag (and OP Slack channel): #vespamap17</p>
+  </article>
+  <p class="auto-fadein" data-config-contact>
+    <!-- populated from slide_config.json -->
+  </p>
+</slide>
+
+<!-- <slide class="logoslide dark nobackground">
+  <article class="flexbox vcenter">
+    <span><img src="images/google_developers_logo_white.png"></span>
+  </article>
+</slide> -->
+
+<slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
+   <hgroup>
+     <h2 class="white">Full Image (with Optional Header)</h2>
+   </hgroup>
+   <footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
+  </slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
